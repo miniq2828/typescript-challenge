@@ -6,4 +6,14 @@
  */
 export function uniqueElements(array: number[]): number[] {
     // 請在此處寫下你的程式碼
+
+    let map = new Map<number, number>();
+    array.forEach((num) => {
+        if (map.has(num)) {
+            map.set(num, (map.get(num) as number) + 1);
+        } else {
+            map.set(num, 1);
+        }
+    });
+    return Array.from(map.keys());
 }
